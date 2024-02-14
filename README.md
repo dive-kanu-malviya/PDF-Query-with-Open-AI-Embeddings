@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 ### Setup
 
-Before running the application, ensure you have set up the necessary environment variables:
+Before running the application, ensure you have set up the necessary environment variables defined in the .env file in this project directory:
 
 - `OPENAI_API_KEY`: Your OpenAI API key
 - `PINECONE_API_KEY`: Your Pinecone API key
