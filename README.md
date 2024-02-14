@@ -60,9 +60,6 @@ The web interface should now be accessible at `http://localhost:8501`.
 2. Enter your question in the provided text input.
 3. Click "Get Answer" to retrieve information based on your query.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 
