@@ -27,8 +27,8 @@ def create_pinecone_index(documents, embeddings, index_name):
     return Pinecone.from_documents(documents, embeddings, index_name=index_name)
 
 # initialize the LLM model from Open API
-def setup_llm(model_name, temperature=0.1):
-    return OpenAI(model_name=model_name, temperature=temperature)
+def setup_llm(model_name, temperature, max_tokens):
+    return OpenAI(model_name=model_name, temperature=temperature,max_tokens=max_tokens)
 
 #read document using langchain pdf reader
 def read_doc(directory):

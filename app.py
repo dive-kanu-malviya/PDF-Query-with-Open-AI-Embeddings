@@ -15,8 +15,8 @@ import warnings
 
 # Local application imports
 from utils import read_doc, chunk_data, retrieve_answers, setup_openai_embeddings, setup_pinecone, create_pinecone_index, setup_llm
-
-
+MAX_RESPONSE_TOKENS = 2046
+TEMPERATURE = 0.1
 # Configuration and setup
 try:
     OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
@@ -52,7 +52,7 @@ def streamlit_ui():
             index = create_pinecone_index(documents, embeddings, PINECONE_INDEX_NAME)
 
             # Setup LLM and QA chain
-            llm = setup_llm(OPENAI_LLM_MODEL_NAME)
+            llm = setup_llm(OPENAI_LLM_MODEL_NAME,temperature=TEMPERATURE,max_tokens=MAX_RESPONSE_TOKENS)
             # Assuming load_qa_chain is defined and implemented correctly elsewhere
             chain = load_qa_chain(llm, chain_type="stuff")
 
@@ -62,11 +62,24 @@ def streamlit_ui():
 
         user_query = st.text_input("Enter your question here:")
 
+        mode = st.radio("Choose your answer mode:", ("Precise", "Elaborate"), index=0, horizontal=True)
+
+
         if st.button("Get Answer"):
             if user_query:
                 try:
+                    
+                    if mode == "Precise":
+                        user_query += " Give a precise short answer."
+                    elif mode == "Elaborate":
+                        user_query += " Give a long answer with different headings"
+                    else:
+                        st.error(f"Answer mode not selected")
                     answer = retrieve_answers(chain, index, user_query)
+                    logging.info(f'{answer}')
+                    print(len(answer),answer)
                     st.write(answer)
+
                 except Exception as e:
                     st.error(f"Failed to retrieve answers: {e}")
             else:
