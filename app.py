@@ -31,6 +31,10 @@ except KeyError as e:
 def streamlit_ui():
     st.title("Document Question Answering System")
 
+     # Added descriptive text below the title
+    st.write("Upload a document and ask anything. Get answers tuned for your industry needs")
+
+
     uploaded_file = st.file_uploader("Choose a file", type=["pdf", "txt", "docx", "doc"])
     if uploaded_file is not None:
         try:
