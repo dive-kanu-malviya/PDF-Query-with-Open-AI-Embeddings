@@ -32,7 +32,10 @@ def streamlit_ui():
     st.title("Document Question Answering System")
 
      # Added descriptive text below the title
-    st.write("Upload a document and ask anything. Get answers tuned for your industry needs")
+    st.write("Upload a document and ask anything. Get answers tuned for your industry needs.")
+
+    st.write("NOTE : Designed to read text rich documents. Answering quality might drop if your document contains too many images and design formatting")
+
 
 
     uploaded_file = st.file_uploader("Choose a file", type=["pdf", "txt", "docx", "doc"])
