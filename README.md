@@ -60,6 +60,14 @@ The web interface should now be accessible at `http://localhost:8501`.
 2. Enter your question in the provided text input.
 3. Click "Get Answer" to retrieve information based on your query.
 
+## Use Cases
+The Document Question Answering System can be useful in a variety of scenarios:
+
+1. Research: Researchers can use the system to quickly find answers in long documents or studies, saving time that would otherwise be spent manually searching through the text.
+2. Legal and Compliance: Legal professionals can use the system to extract specific details from large volumes of legal documents, such as contracts or legislation.
+3. Education: Students and educators can use the system to find answers in textbooks or literature, making study sessions more efficient.
+4. Customer Support: Customer support teams can upload manuals or internal documentation to find answers to customer inquiries quickly.
+5. Medical Field: Medical professionals can use the system to find information from medical texts and journals, assisting in research or diagnostics.
 
 ## License
 
