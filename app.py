@@ -54,7 +54,7 @@ def streamlit_ui():
             pc = setup_pinecone(PINECONE_API_KEY)
             index = create_pinecone_index(documents, embeddings, PINECONE_INDEX_NAME)
             #add sleep for index to upload
-            test.sleep(10)
+            time.sleep(10)
 
             # Setup LLM and QA chain
             llm = setup_llm(OPENAI_LLM_MODEL_NAME,temperature=TEMPERATURE,max_tokens=MAX_RESPONSE_TOKENS)
