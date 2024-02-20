@@ -12,7 +12,7 @@ import pinecone
 import tempfile
 import logging
 import warnings
-
+import time
 # Local application imports
 from utils import read_doc, chunk_data, retrieve_answers, setup_openai_embeddings, setup_pinecone, create_pinecone_index, setup_llm
 MAX_RESPONSE_TOKENS = 2046
@@ -53,6 +53,8 @@ def streamlit_ui():
             embeddings = setup_openai_embeddings(OPENAI_API_KEY)
             pc = setup_pinecone(PINECONE_API_KEY)
             index = create_pinecone_index(documents, embeddings, PINECONE_INDEX_NAME)
+            #add sleep for index to upload
+            test.sleep(10)
 
             # Setup LLM and QA chain
             llm = setup_llm(OPENAI_LLM_MODEL_NAME,temperature=TEMPERATURE,max_tokens=MAX_RESPONSE_TOKENS)
